@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="isawyoulastnight is a NYC-based DJ playing hip-hop, Afrobeats, house, and R&B. Listen to mixes and get in touch for bookings.">
+  <meta property="og:title" content="isawyoulastnight — NYC DJ">
+  <meta property="og:description" content="Hip-Hop · Afrobeats · House · R&B">
+  <title>isawyoulastnight — DJ</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      margin: 0;
+      padding-top: 81px;
+      font-family: Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #000;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-height: 81px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 18px clamp(20px, 4vw, 60px);
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      z-index: 1000;
+    }
+
+    header h1 {
+      margin: 0;
+      flex-shrink: 0;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: clamp(16px, 2.2vw, 30px);
+      margin-left: auto;
+    }
+
+    nav a {
+      color: #000;
+      font-size: 14px;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      opacity: 0.55;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #000;
+    }
+
+    .hero {
+      min-height: calc(100vh - 81px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      font-size: clamp(25px, 4vw, 42px);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 100px 20px 80px;
+      scroll-margin-top: 100px;
+    }
+
+    section h2 {
+      margin: 0 0 20px;
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    section p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      margin-top: 20px;
+      border: 0;
+    }
+
+    .soundcloud-attribution {
+      margin-top: 8px;
+      overflow-wrap: anywhere;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      color: #999;
+    }
+
+    .soundcloud-attribution a {
+      color: #999;
+      text-decoration: none;
+    }
+
+    #gallery h5 {
+      margin: 18px 0;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    footer {
+      border-top: 1px solid #eee;
+      padding: 40px 20px;
+      color: #555;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 73px;
+      }
+
+      header {
+        min-height: 73px;
+        padding: 14px 20px;
+      }
+
+      header h1 {
+        font-size: 18px;
+      }
+
+      .menu-toggle {
+        display: flex;
+        margin-left: auto;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 20px;
+        min-width: 180px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        margin: 0;
+        padding: 10px 20px;
+        background: #fff;
+        border: 1px solid #eee;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 14px;
+      }
+
+      .hero {
+        min-height: calc(100svh - 73px);
+        letter-spacing: 1px;
+      }
+
+      section {
+        padding: 80px 20px 60px;
+        scroll-margin-top: 85px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>isawyoulastnight</h1>
+
+    <button
+      class="menu-toggle"
+      id="menu-toggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-controls="site-nav"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="site-nav" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#mixes">Mixes</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      Hip-Hop · Afrobeats · House · RnB
+    </div>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        isawyoulastnight is a NYC-based DJ spinning hip-hop, afrobeats, house,
+        and RnB. Known for blending sounds across cultures and keeping the
+        dance floor alive at clubs, parties, and private events.
+      </p>
+    </section>
+
+    <section id="mixes">
+      <h2>Mixes</h2>
+      <p>Listen to live sets and curated mixes:</p>
+
+      <iframe
+        title="Out of My Hands — isawyoulastnight on SoundCloud"
+        height="300"
+        scrolling="no"
+        allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2021374125&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+      </iframe>
+
+      <div class="soundcloud-attribution">
+        <a href="https://soundcloud.com/user-532943233" target="_blank" rel="noopener noreferrer">isawyoulastnight</a>
+        ·
+        <a href="https://soundcloud.com/user-532943233/out-of-my-hands" target="_blank" rel="noopener noreferrer">out of my hands</a>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <h2>Past Venues</h2>
+      <h5>ELSEWHERE</h5>
+      <h5>S.O.B'S</h5>
+      <h5>BABY'S ALL RIGHT</h5>
+      <h5>MOOD RING</h5>
+      <h5>THE D.L.</h5>
+      <h5>ESSEX</h5>
+    </section>
+
+    <section id="contact">
+      <h2>Contact / Booking</h2>
+      <p>
+        Email:
+        <a href="mailto:prod.isawyoulastnight@gmail.com">prod.isawyoulastnight@gmail.com</a>
+      </p>
+      <p>
+        Instagram:
+        <a href="https://instagram.com/isawyoulastnight.mp3" target="_blank" rel="noopener noreferrer">@isawyoulastnight.mp3</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 isawyoulastnight. All rights reserved.
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const nav = document.getElementById("site-nav");
+    const navLinks = nav.querySelectorAll("a");
+
+    function closeMenu() {
+      nav.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("active");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) {
+        closeMenu();
+      }
+    });
+  </script>
+</body>
+</html>
